@@ -6,7 +6,8 @@ import requests
 from flasgger import Swagger
 from flask import request, jsonify
 from app import app
-from app.input_schema import TrainingAPISchema, LoginInputSchema
+from app.request_validator import StarshipAPISchema
+from http import HTTPStatus
 
 swagger = Swagger(app, template=app.config['SWAGGER_TEMPLATE'])
 
@@ -17,7 +18,7 @@ def starships():
     This is using docstrings for specifications.
     ---
     parameters:
-      - name: sort
+      - name: sort_id
         in: formData
         type: integer
         enum: [0,1,2]
@@ -30,4 +31,15 @@ def starships():
         examples:
           rgb: []
     """
-    return 0
+    errors = StarshipAPISchema().validate(request.form)
+    if errors:
+        message = {
+            'status': HTTPStatus.BAD_REQUEST,
+            'message': str(errors),
+        }
+        resp = jsonify(message)
+        resp.status_code = HTTPStatus.BAD_REQUEST
+        return resp
+    sort_id = int(request.form.get('sort_id'))
+    print(sort_id)
+    return "0"
