@@ -1,10 +1,22 @@
 ### Introduction
 
-In this guide, we're going to be building a very simple Flask application that accepts a query string in the URL, renders a template and displays the query string keys & values in a table.
+Microservice to  list  all starships from the Star Wars movies, sorted by the hyperdrive rating. I have used Swagger for API documentation.
 
-We're going to be deploying the app on a Google Cloud virtual machine using Ubuntu 18.04.
 
-You can find the small amount of source code at the Github repo <a href="https://github.com/Julian-Nash/simple-flask-demo">Here</a> if you'd like to follow along. 
+Deliverable Goals: 
+- Microservice to  list  all starships
+- Source code
+- Deployment instructions
+- In case you had any doubt regarding the requirements and made an assumption, just describe what was the doubt and your thinking process
+- * Assumption, rating with unknown values are considered as lowest ranked(For Sorting purposes)
+How to deliver:
+Publish your code in a repository of your choice or send a compressed file via email to your recruiter. 
+
+
+
+
+
+
 
 The puspose of this guide is to cover the setup of a VM and a basic introduction to deploying a Flask application with Nginx & uwsgi.
 
@@ -26,7 +38,7 @@ Either way, you'll need to push your code to a remote repo as we'll be pulling t
 ### Dependencies
 
 - Flask
-- uwsgi
+
 
 ### Running the application locally
 
@@ -217,18 +229,12 @@ cd ~/
 Clone the repo, being sure to replace the URL with the URL of YOUR repo!:
 
 ```sh
-git clone https://github.com/Julian-Nash/flask-demo.git
+git clone https://github.com/MalikOvaiz/starwars-microservice
 ```
 
 **IMPORTANT**
 
-If you've cloned this repo, rename the `simple-flask-demo` parent directory to `app`. Otherwise, just make sure the application parent directory is named `app`.
 
-If you need to rename `simple-flask-demo` on the virtual machine, you can do so with: 
-
-```sh
-mv simple-flask-demo/ app
-```
 
 The file/directory structure should look like this (where the parent `app` directory is located in your user home directory):
 
