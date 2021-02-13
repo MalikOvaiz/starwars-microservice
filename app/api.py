@@ -32,16 +32,26 @@ def starships():
         examples:
           rgb: []
     """
-    errors = StarshipAPISchema().validate(request.form)
-    if errors:
-        message = {
-            'status': HTTPStatus.BAD_REQUEST,
-            'message': str(errors),
-        }
-        resp = jsonify(message)
-        resp.status_code = HTTPStatus.BAD_REQUEST
+
+    try:
+        errors = StarshipAPISchema().validate(request.form)
+        if errors:
+            message = {
+                'status': HTTPStatus.BAD_REQUEST,
+                'message': str(errors),
+            }
+            resp = jsonify(message)
+            resp.status_code = HTTPStatus.BAD_REQUEST
+            return resp
+        sort_id = int(request.form.get('sort_id'))
+        data = Starship().get_starships(sort_id)
+        return jsonify({
+            'status': HTTPStatus.OK,
+            'results': data,
+        })
+    except Exception as e:
+        resp = jsonify({
+            'message': str(e)
+        })
+        resp.status_code = HTTPStatus.INTERNAL_SERVER_ERROR
         return resp
-    sort_id = int(request.form.get('sort_id'))
-    print(sort_id)
-    data = Starship().get_starships()
-    return "0"
