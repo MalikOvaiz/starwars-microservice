@@ -9,6 +9,8 @@ Deliverable Goals:
 - Deployment instructions
 - In case you had any doubt regarding the requirements and made an assumption, just describe what was the doubt and your thinking process
 - * Assumption, rating with unknown values are considered as lowest ranked(For Sorting purposes)
+    
+Demo: https://youtu.be/JdE-wsvqgw4
 How to deliver:
 Publish your code in a repository of your choice or send a compressed file via email to your recruiter. 
 
