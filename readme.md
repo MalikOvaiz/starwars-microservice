@@ -11,7 +11,8 @@ Deliverable Goals:
 - * Assumption, rating with unknown values are considered as lowest ranked(For Sorting purposes)
     
 Demo: https://youtu.be/JdE-wsvqgw4
-How to deliver:
+
+-How to deliver:
 Publish your code in a repository of your choice or send a compressed file via email to your recruiter. 
 
 
