@@ -8,6 +8,7 @@ from flask import request, jsonify
 from app import app
 from app.request_validator import StarshipAPISchema
 from http import HTTPStatus
+from app.repositories.starship import Starship
 
 swagger = Swagger(app, template=app.config['SWAGGER_TEMPLATE'])
 
@@ -42,4 +43,5 @@ def starships():
         return resp
     sort_id = int(request.form.get('sort_id'))
     print(sort_id)
+    data = Starship().get_starships()
     return "0"
